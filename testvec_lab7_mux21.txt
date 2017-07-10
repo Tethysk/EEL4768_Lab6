@@ -1,2 +1,4 @@
 // This test vector is in hex
+// S[1] | D0[32] | D1[32] | Y[32]
+
 X
