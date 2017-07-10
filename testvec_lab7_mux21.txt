@@ -1,4 +1,5 @@
 // This test vector is in hex
 // S[1] | D0[32] | D1[32] | Y[32]
-
+0_666AA666_BADA55E5_666AA666
+1_666AA666_BADA55E5_BADA55E5
 X
