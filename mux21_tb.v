@@ -7,9 +7,9 @@ reg rightY;					  // truth table expected output
 
 // Connect UUT to test bench signals
 mux21 #(1) utt( // the 1 gets passed as the first parameter, the bit width
+.S	(wS),
 .D0 (wD0),
 .D1 (wD1),
-.S	(wS),
 .Y	(wY)
 );
 
