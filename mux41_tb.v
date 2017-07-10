@@ -1,9 +1,5 @@
-`include "muxes_a.v"
-`include "muxes_b.v"
-`include "muxes_c.v"
-
 module mux41_tb;
-reg wD0, wD1, wD2, wD3, wS;			  // machine inputs
+reg wD0, wD1, wD2, wD3, wS;	  // machine inputs
 wire wY						  // machine output
 reg [5:0] testvectors[0:100]; // [5:0] needs to be changed to [X:0] as X= truthTableLength-1
 reg [7:0] errors;			  // counts how many rows were incorrect
