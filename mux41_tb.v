@@ -1,16 +1,22 @@
-module mux21_tb;
-reg wD0, wD1, wS; 				 // machine inputs
-wire wY;						 // machine output
-reg [3:0] testvectors[0:50];    // [3:0] needs to be changed to [X:0] as X= truthTableLength-1 (DONE)
-reg [7:0] errors;			     // counts how many rows were incorrect
-reg [7:0] vectornum;		     // loop counterrows were incorrect
-reg rightY;		         // truth table expected output
+module mux41_tb;
+reg [4:0] wD0;	             // machine inputs 
+reg [4:0] wD1;
+reg [4:0] wD2;
+reg [4:0] wD3;
+reg [1:0] wS; 
+wire [4:0] wY;				  // machine output
+reg [26:0] testvectors[0:50]; // [21:0] needs to be changed to [X:0] as X= truthTableLength-1 (DONE)
+reg [10:0] errors;			  // counts how many rows were incorrect
+reg [10:0] vectornum;		  // loop counterrows were incorrect
+reg [4:0]rightY;	          // truth table expected output
 
 // Connect UUT to test bench signals
-mux21 #(1) utt( // the 1 gets passed as the first parameter, the bit width
+mux41 #(5) utt( // the 5 gets passed as the first parameter, the bit width
 .S	(wS),
 .D0 (wD0),
 .D1 (wD1),
+.D2 (wD2),
+.D3 (wD3),
 .Y	(wY)
 );
 
@@ -21,7 +27,7 @@ initial  begin
 end 
 
 initial begin
-	$readmemb("testvec_lab7_mux21.txt", testvectors); //testvec is in binary
+	$readmemb("testvec_lab7_mux41.txt", testvectors); //testvec is in binary
 	vectornum = 0;
 	errors = 0;
 end
@@ -31,11 +37,13 @@ always begin
 		$display("%1d tests completed with %1d errors.", vectornum, errors);
 		$finish;
 	end
-	{wS, wD0, wD1, rightY} = testvectors[vectornum];
+	{wS, wD0, wD1, wD2, wD3, rightY} = testvectors[vectornum];
 	#1  // must allow state machine time to run its behavioral code
 	if (rightY !== wY) begin 
 		errors = errors+1;	// found incorrect output
-		$display("Select:%b D0:%b D1:%b incorrectly outputs Y=%b ", wS, wD0, wD1, wY );
+		$display("Select:%b D0:%b D1:%b D2:%b D3:%b", wS, wD0, wD1, wD2, wD3);
+		$display("incorrectly outputs Y=%b expected:%b \n",wY,rightY);
+		
 	end
 	vectornum = vectornum+1; // increments loop counter
 end
