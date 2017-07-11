@@ -1,8 +1,11 @@
 module mux21_tb;
-reg wD0, wD1, wS;			     // machine inputs
-wire wY						     // machine output
-reg [97-1:0] testvectors[0:100]; // [5:0] needs to be changed to [X:0] as X= truthTableLength-1 (in binary?)
+reg [31:0] wD0;                  // machine inputs
+reg [31:0] wD1;
+reg wS;
+wire wY;						 // machine output
+reg [96:0] testvectors[0:100];   // [5:0] needs to be changed to [X:0] as X= truthTableLength-1 (in binary?)
 reg [7:0] errors;			     // counts how many rows were incorrect
+reg [7:0] vectornum;		     // loop counterrows were incorrect
 reg [31:0]rightY;		         // truth table expected output
 
 // Connect UUT to test bench signals
@@ -15,7 +18,7 @@ mux21 #(1) utt( // the 1 gets passed as the first parameter, the bit width
 
 // Remember to take a dump
 initial  begin
-    $dumpfile ("lab6_sm1.vcd"); 
+    $dumpfile ("lab7_muxes.vcd"); 
 	$dumpvars; 
 end 
 
@@ -31,12 +34,13 @@ always begin
 		$finish;
 	end
 	{wS, wD0, wD1, rightY} = testvectors[vectornum];
-	utt.S = wS;
 	#1  // must allow state machine time to run its behavioral code
 	if (rightY !== wY) begin 
 		errors = errors+1;	// found another incorrect output
 		$display("Select:%b D0:%b D1:%b incorrectly outputs Y=%b ", wS, wD0, wD1, wY );
 	end
+	vectornum = vectornum+1; // increments loop counter
+end
 endmodule
 
 
