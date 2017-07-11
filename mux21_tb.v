@@ -1,9 +1,7 @@
 module mux21_tb;
-reg [31:0] wD0;                  // machine inputs
-reg [31:0] wD1;
-reg wS;
+reg wD0, wD1, wS; 				 // machine inputs
 wire wY;						 // machine output
-reg [96:0] testvectors[0:100];   // [5:0] needs to be changed to [X:0] as X= truthTableLength-1 (in binary?)
+reg [3:0] testvectors[0:50];    // [3:0] needs to be changed to [X:0] as X= truthTableLength-1 (DONE)
 reg [7:0] errors;			     // counts how many rows were incorrect
 reg [7:0] vectornum;		     // loop counterrows were incorrect
 reg [31:0]rightY;		         // truth table expected output
