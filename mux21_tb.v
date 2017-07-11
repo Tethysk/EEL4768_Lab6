@@ -4,7 +4,7 @@ wire wY;						 // machine output
 reg [3:0] testvectors[0:50];    // [3:0] needs to be changed to [X:0] as X= truthTableLength-1 (DONE)
 reg [7:0] errors;			     // counts how many rows were incorrect
 reg [7:0] vectornum;		     // loop counterrows were incorrect
-reg [31:0]rightY;		         // truth table expected output
+reg rightY;		         // truth table expected output
 
 // Connect UUT to test bench signals
 mux21 #(1) utt( // the 1 gets passed as the first parameter, the bit width
@@ -21,7 +21,7 @@ initial  begin
 end 
 
 initial begin
-	$readmemh("testvec_lab7_mux21.txt", testvectors); //testvec is in hex
+	$readmemb("testvec_lab7_mux21.txt", testvectors); //testvec is in binary
 	vectornum = 0;
 	errors = 0;
 end
@@ -34,7 +34,7 @@ always begin
 	{wS, wD0, wD1, rightY} = testvectors[vectornum];
 	#1  // must allow state machine time to run its behavioral code
 	if (rightY !== wY) begin 
-		errors = errors+1;	// found another incorrect output
+		errors = errors+1;	// found incorrect output
 		$display("Select:%b D0:%b D1:%b incorrectly outputs Y=%b ", wS, wD0, wD1, wY );
 	end
 	vectornum = vectornum+1; // increments loop counter
