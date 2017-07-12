@@ -1,7 +1,7 @@
 // Extender Test vectors
 // Sign Byte | D | Y
 0_FEED_0000FEED
+1_FEED_000000ED
 2_FEED_FFFFFEED
-2_0A55_00000A55
-
+3_FEED_FFFFFFED
 X
