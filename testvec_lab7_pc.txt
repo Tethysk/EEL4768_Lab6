@@ -1,0 +1,17 @@
+// Name: Matthew Otto
+// Last Modified: 2017/07/12
+//
+// Course: EEL4768
+// Assignemnt: Lab7- Test vector for a program counter
+//
+// PC Test vectors
+// reset_NextPC_PC
+1_BADA55E5_00400000
+1_A550A550_00400000
+1_42069420_00400000
+1_FEEDFEED_00400000
+0_D4A49550_DA4A9554
+0_AAAAAAAA_AAAAAAAE
+0_E0FBE0FB_E0FBE0FF
+0_FBF7EFDF_EFB7EFDB
+X
