@@ -1,6 +1,6 @@
 module extender_tb;
 reg [15:0] wD;	             // machine inputs 
-reg Sign, Byte; 
+reg wSign, wByte; 
 wire [31:0] wY;				  // machine output
 reg [49:0] testvectors[0:50]; // [49:0] needs to be changed to [X:0] as X= truthTableLength-1 (DONE)
 reg [10:0] errors;			  // counts how many rows were incorrect
@@ -32,7 +32,7 @@ always begin
 		$display("%1d tests completed with %1d errors.", vectornum, errors);
 		$finish;
 	end
-	{wSign, wByte, WD rightY} = testvectors[vectornum];
+	{wSign, wByte, wD, rightY} = testvectors[vectornum];
 	#1  // must allow state machine time to run its behavioral code
 	if (rightY !== wY) begin 
 		errors = errors+1;	// found incorrect output
