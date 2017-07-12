@@ -1,3 +1,9 @@
+// Name: Matthew Otto
+// Last Modified: 2017/07/12
+//
+// Course: EEL4768
+// Assignemnt: Lab7- Test vector for a 32-bit extender
+//
 // Extender Test vectors
 // Sign Byte | D | Y
 0_FEED_0000FEED

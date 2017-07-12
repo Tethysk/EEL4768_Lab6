@@ -1,3 +1,9 @@
+// Name: Matthew Otto
+// Last Modified: 2017/07/12
+//
+// Course: EEL4768
+// Assignemnt: Lab7- Multiplexer 2 to 1 testbench
+//
 module mux21_tb;
 reg wD0, wD1, wS; 				 // machine inputs
 wire wY;						 // machine output

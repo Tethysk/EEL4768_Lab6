@@ -1,3 +1,9 @@
+// Name: Matthew Otto
+// Last Modified: 2017/07/12
+//
+// Course: EEL4768
+// Assignemnt: Lab7- Multiplexer 4 to 1 testbench
+//
 module mux41_tb;
 reg [4:0] wD0;	             // machine inputs 
 reg [4:0] wD1;
