@@ -2,7 +2,7 @@
 // Last Modified: 2017/07/12
 //
 // Course: EEL4768
-// Assignemnt: Lab7- Test vector for a 4 to 1 multiplexer
+// Assignment: Lab7- Test vector for a 4 to 1 multiplexer
 //
 // Test vectors for a 5-bit 4 to 1 mux
 // S | D0 | D1 | D2 | D3 | Y

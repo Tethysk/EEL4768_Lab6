@@ -2,7 +2,7 @@
 // Last Modified: 2017/07/12
 //
 // Course: EEL4768
-// Assignemnt: Lab7- 32-bit Extender testbench
+// Assignment: Lab7- 32-bit Extender testbench
 //
 module extender_tb;
 reg [15:0] wD;	             // machine inputs 

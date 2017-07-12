@@ -2,7 +2,7 @@
 // Last Modified: 2017/07/12
 //
 // Course: EEL4768
-// Assignemnt: Lab7- Program Counter testbench
+// Assignment: Lab7- Program Counter testbench
 //
 module pc_tb;
 reg [31:0] wNextPC;           // machine inputs 
